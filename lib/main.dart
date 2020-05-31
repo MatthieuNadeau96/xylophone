@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:xylophone/xylophone.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
+  SystemChrome.setPreferredOrientations(([
+    // DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]));
   runApp(MyApp());
 }
 

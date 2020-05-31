@@ -6,39 +6,39 @@ class Xylophone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Row(
         children: [
           Key(
             color: Colors.red,
-            note: 'c2',
+            note: 'c',
           ),
           Key(
             color: Colors.orange,
-            note: 'b',
-          ),
-          Key(
-            color: Colors.yellow,
-            note: 'a',
-          ),
-          Key(
-            color: Colors.lightGreen,
-            note: 'g',
-          ),
-          Key(
-            color: Colors.green,
-            note: 'f',
-          ),
-          Key(
-            color: Colors.lightBlue,
-            note: 'e',
-          ),
-          Key(
-            color: Colors.blue,
             note: 'd',
           ),
           Key(
+            color: Colors.yellow,
+            note: 'e',
+          ),
+          Key(
+            color: Colors.lightGreen,
+            note: 'f',
+          ),
+          Key(
+            color: Colors.green,
+            note: 'g',
+          ),
+          Key(
+            color: Colors.lightBlue,
+            note: 'a',
+          ),
+          Key(
+            color: Colors.blue,
+            note: 'b',
+          ),
+          Key(
             color: Colors.purple,
-            note: 'c',
+            note: 'c2',
           ),
         ],
       ),
