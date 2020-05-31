@@ -49,7 +49,7 @@ flutter:
   assets:
     - assets/sounds/xylophone-a.wav
     - assets/sounds/xylophone-b.wav
-    - assets/sounds/xylophone-c.mp3
+    - assets/sounds/xylophone-c.wav
     - assets/sounds/xylophone-c2.wav
     - assets/sounds/xylophone-d.wav
     - assets/sounds/xylophone-e.wav
