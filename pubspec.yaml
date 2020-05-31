@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  audioplayers: ^0.15.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -45,8 +46,15 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/sounds/xylophone-a.wav
+    - assets/sounds/xylophone-b.wav
+    - assets/sounds/xylophone-c.mp3
+    - assets/sounds/xylophone-c2.wav
+    - assets/sounds/xylophone-d.wav
+    - assets/sounds/xylophone-e.wav
+    - assets/sounds/xylophone-f.wav
+    - assets/sounds/xylophone-g.wav
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
