@@ -78,11 +78,12 @@ class Xylophone extends StatelessWidget {
   }
 }
 
-class Key extends StatelessWidget {
+class Key extends StatefulWidget {
   final Color color;
   final String note;
   final double h;
   final double w;
+
   Key({
     this.color,
     this.note,
@@ -90,25 +91,63 @@ class Key extends StatelessWidget {
     this.w,
   });
 
-  final AudioPlayer audioPlayer = AudioPlayer();
   static AudioCache player = AudioCache();
 
   @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        player.play('sounds/xylophone-$note.wav');
+  _KeyState createState() => _KeyState();
+}
 
-        print('$note tapped');
-      },
-      child: Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: color,
+class _KeyState extends State<Key> with SingleTickerProviderStateMixin {
+  final AudioPlayer audioPlayer = AudioPlayer();
+  double _scale;
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 50),
+      lowerBound: 0.0,
+      upperBound: 0.02,
+    )..addListener(() {
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onTapDown(TapDownDetails details) {
+    _controller.forward();
+    Key.player.play('sounds/xylophone-${widget.note}.wav');
+    print('${widget.note} tapped');
+  }
+
+  void _onTapUp(TapUpDetails details) {
+    _controller.reverse();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _scale = 1 - _controller.value;
+    return GestureDetector(
+      onTapDown: _onTapDown,
+      onTapUp: _onTapUp,
+      child: Transform.scale(
+        scale: _scale,
+        child: Container(
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: widget.color,
+          ),
+          width: widget.w,
+          height: widget.h,
         ),
-        width: w,
-        height: h,
       ),
     );
   }
