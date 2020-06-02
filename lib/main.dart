@@ -9,7 +9,7 @@ void main() {
     statusBarColor: Colors.transparent,
   ));
   SystemChrome.setPreferredOrientations(([
-    // DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]));
   runApp(MyApp());

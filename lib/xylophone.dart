@@ -90,7 +90,7 @@ class Key extends StatelessWidget {
     this.w,
   });
 
-  AudioPlayer audioPlayer = AudioPlayer();
+  final AudioPlayer audioPlayer = AudioPlayer();
   static AudioCache player = AudioCache();
 
   @override
